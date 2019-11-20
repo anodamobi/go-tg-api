@@ -1,0 +1,6 @@
+.gitignore
+Dockerfile
+Gopkg.lock
+Gopkg.toml
+README.md
+docker-compose.yaml
