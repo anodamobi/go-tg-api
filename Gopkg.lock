@@ -2,12 +2,6 @@
 
 
 [[projects]]
-  branch = "develop"
-  name = "github.com/anodamobi/glance-backend"
-  packages = ["config","db","db/models","server/handlers/auth","server/handlers/errs"]
-  revision = "a33018c1cf96dd42167287a52541aadc14dc7a7e"
-
-[[projects]]
   name = "github.com/caarlos0/env"
   packages = ["."]
   revision = "b1dce163743c66634eeef5988da14b031b1aa8f6"
@@ -18,12 +12,6 @@
   packages = ["."]
   revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
   version = "v3.2.0"
-
-[[projects]]
-  name = "github.com/dustin/go-humanize"
-  packages = ["."]
-  revision = "9f541cc9db5d55bce703bd99987c9d5cb8eea45e"
-  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/go-chi/chi"
@@ -50,10 +38,10 @@
   version = "v1.1"
 
 [[projects]]
-  name = "github.com/go-ozzo/ozzo-validation"
+  name = "github.com/go-telegram-bot-api/telegram-bot-api"
   packages = ["."]
-  revision = "199b55b36bc1af151e6eea487cc92ffa5b460b81"
-  version = "v3.6.0"
+  revision = "9860bdfd3a171ceafb6e1eafa163482a6ef92643"
+  version = "v4.6.4"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -72,18 +60,6 @@
   packages = [".","oid","scram"]
   revision = "3427c32cb71afc948325f299f040e53c1dd78979"
   version = "v1.2.0"
-
-[[projects]]
-  name = "github.com/minio/minio-go"
-  packages = [".","pkg/credentials","pkg/encrypt","pkg/s3signer","pkg/s3utils","pkg/set"]
-  revision = "c6c2912aa5522e5f5a505e6cba30e95f0d8456fa"
-  version = "v6.0.25"
-
-[[projects]]
-  name = "github.com/mitchellh/go-homedir"
-  packages = ["."]
-  revision = "af06845cf3004701891bf4fdb884bfe4920b3727"
-  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -122,28 +98,22 @@
   version = "v1.0.5"
 
 [[projects]]
-  branch = "master"
-  name = "golang.org/x/crypto"
-  packages = ["argon2","bcrypt","blake2b","blowfish"]
-  revision = "4f8c1d86b1ba699e7a66cd649947ed270a74e0bb"
+  name = "github.com/technoweenie/multipartstreamer"
+  packages = ["."]
+  revision = "a90a01d73ae432e2611d178c18367fbaa13e0154"
+  version = "v1.0.1"
 
 [[projects]]
-  branch = "master"
-  name = "golang.org/x/net"
-  packages = ["context","http/httpguts","http2","http2/hpack","idna","publicsuffix"]
-  revision = "fc4aabc6c91483155dade6fbb627cc953a723260"
+  name = "github.com/twinj/uuid"
+  packages = ["."]
+  revision = "835a10bbd6bce40820349a68b1368a62c3c5617c"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = ["cpu","unix"]
+  packages = ["unix"]
   revision = "f068ffe820e46336f56dfca7777430582d6e507b"
-
-[[projects]]
-  name = "golang.org/x/text"
-  packages = ["collate","collate/build","internal/colltab","internal/gen","internal/language","internal/language/compact","internal/tag","internal/triegen","internal/ucd","language","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable"]
-  revision = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
-  version = "v0.3.2"
 
 [[projects]]
   name = "gopkg.in/gorp.v1"
@@ -151,21 +121,9 @@
   revision = "6a667da9c028871f98598d85413e3fc4c6daa52e"
   version = "v1.7.2"
 
-[[projects]]
-  name = "gopkg.in/ini.v1"
-  packages = ["."]
-  revision = "87e589f4917038ae250cff2446db7573f47e97ca"
-  version = "v1.51.0"
-
-[[projects]]
-  branch = "v2"
-  name = "gopkg.in/tucnak/telebot.v2"
-  packages = ["."]
-  revision = "d0707a9d73c4b37c1c6ff59b95a775e156e70b12"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9086e4ba66d6ab7eb7e5dd43b7b9e910441d170f68221ac77ca04c22ee25bf60"
+  inputs-digest = "1b69afb48ec4374c9e8e5ed096586dad375dc96b1a17b646170673f3dd24982d"
   solver-name = "gps-cdcl"
   solver-version = 1
