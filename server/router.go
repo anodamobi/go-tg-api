@@ -1,10 +1,14 @@
 package server
 
 import (
-	"net/http"
 	"time"
 
+	"github.com/anodamobi/go-tg-api/server/handlers"
+
 	"github.com/anodamobi/go-tg-api/server/middlewares"
+
+	"github.com/anodamobi/go-tg-api/bot"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
@@ -16,6 +20,7 @@ const durationThreshold = time.Second * 10
 
 func Router(
 	log *logrus.Entry,
+	botSummary bot.Summary,
 ) chi.Router {
 
 	router := chi.NewRouter()
@@ -32,13 +37,12 @@ func Router(
 
 	router.Use(
 		cors.Handler,
+		middleware.SetHeader("Content-Type", "application/json"),
 		middleware.Recoverer,
 		middlewares.Logger(log, durationThreshold),
 	)
 
-	router.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write([]byte("Hello Glance API"))
-	})
+	router.Get("/bot", handlers.NewHomeHandler(botSummary, log).Handle)
 
 	return router
 }

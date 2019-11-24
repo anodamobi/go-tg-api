@@ -14,7 +14,6 @@ func Logger(entry *logrus.Entry, durationThreshold time.Duration) func(http.Hand
 			ww := middleware.NewWrapResponseWriter(w, r.ProtoMajor)
 			t1 := time.Now()
 
-			//TODO: ADD ID FOR EACH REQUEST
 			defer func() {
 				dur := time.Since(t1)
 				lEntry := entry.WithFields(logrus.Fields{

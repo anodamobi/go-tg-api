@@ -157,9 +157,15 @@
   revision = "87e589f4917038ae250cff2446db7573f47e97ca"
   version = "v1.51.0"
 
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/tucnak/telebot.v2"
+  packages = ["."]
+  revision = "d0707a9d73c4b37c1c6ff59b95a775e156e70b12"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "125f60c26583beb4defd3091bfc7626d6ca309089a3dfafc625c95eef8ea646d"
+  inputs-digest = "9086e4ba66d6ab7eb7e5dd43b7b9e910441d170f68221ac77ca04c22ee25bf60"
   solver-name = "gps-cdcl"
   solver-version = 1

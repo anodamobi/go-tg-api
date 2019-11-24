@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/caarlos0/env"
+	"github.com/go-chi/jwtauth"
 )
 
 type Authentication struct {
@@ -9,7 +10,11 @@ type Authentication struct {
 	Algorithm string `env:"API_AUTHENTICATION_ALGORITHM" envDefault:"HS256"`
 }
 
-func (c *ConfigImpl) JWT() *Authentication {
+func (jwt *Authentication) GetJWTEntry() *jwtauth.JWTAuth {
+	return jwtauth.New(jwt.Algorithm, []byte(jwt.VerifyKey), nil)
+}
+
+func (c *ConfigImpl) JWT() *jwtauth.JWTAuth {
 	if c.jwt != nil {
 		return c.jwt
 	}
@@ -22,7 +27,7 @@ func (c *ConfigImpl) JWT() *Authentication {
 		panic(err)
 	}
 
-	c.jwt = jwt
+	c.jwt = jwt.GetJWTEntry()
 
 	return c.jwt
 }
