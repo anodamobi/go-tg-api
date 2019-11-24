@@ -42,7 +42,7 @@ func Router(
 		middlewares.Logger(log, durationThreshold),
 	)
 
-	router.Get("/bot", handlers.NewHomeHandler(botSummary, log).Handle)
+	router.Get("/bot", handlers.NewBotHandler(botSummary, log).Handle)
 
 	return router
 }

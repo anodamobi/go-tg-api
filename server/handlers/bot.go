@@ -9,26 +9,26 @@ import (
 	"github.com/anodamobi/go-tg-api/bot"
 )
 
-type homeResponse struct {
+type botResponse struct {
 	ID       int    `json:"id"`
 	Name     string `json:"name"`
 	Username string `json:"username"`
 }
 
-type HomeHandler struct {
+type BotHandler struct {
 	botSummary bot.Summary
 	log        *logrus.Entry
 }
 
-func NewHomeHandler(botSummary bot.Summary, log *logrus.Entry) *HomeHandler {
-	return &HomeHandler{
+func NewBotHandler(botSummary bot.Summary, log *logrus.Entry) *BotHandler {
+	return &BotHandler{
 		botSummary: botSummary,
 		log:        log,
 	}
 }
 
-func (h HomeHandler) Handle(w http.ResponseWriter, r *http.Request) {
-	response, err := json.Marshal(&homeResponse{
+func (h BotHandler) Handle(w http.ResponseWriter, r *http.Request) {
+	response, err := json.Marshal(&botResponse{
 		ID:       h.botSummary.ID,
 		Name:     h.botSummary.Name,
 		Username: h.botSummary.Username,
