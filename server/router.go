@@ -3,6 +3,10 @@ package server
 import (
 	"time"
 
+	"github.com/anodamobi/go-tg-api/db"
+
+	"github.com/go-chi/jwtauth"
+
 	"github.com/anodamobi/go-tg-api/server/handlers"
 
 	"github.com/anodamobi/go-tg-api/server/middlewares"
@@ -21,6 +25,8 @@ const durationThreshold = time.Second * 10
 func Router(
 	log *logrus.Entry,
 	botSummary bot.Summary,
+	auth *jwtauth.JWTAuth,
+	db *db.DB,
 ) chi.Router {
 
 	router := chi.NewRouter()
@@ -43,6 +49,14 @@ func Router(
 	)
 
 	router.Get("/bot", handlers.NewBotHandler(botSummary, log).Handle)
+	router.Route("/user", func(r chi.Router) {
+		r.Use(
+			jwtauth.Verifier(auth),
+			jwtauth.Authenticator,
+		)
+
+		r.Get("/", handlers.NewUserHandler(db, log).Handle)
+	})
 
 	return router
 }

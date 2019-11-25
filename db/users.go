@@ -26,10 +26,10 @@ func (d *DB) CreateUser(user *User) error {
 	return d.db.Model(user).Insert()
 }
 
-func (d *DB) GetUser(externalID string) (*User, error) {
+func (d *DB) GetUser(id string) (*User, error) {
 	wallet := &User{}
 	err := d.db.Select().
-		Where(dbx.HashExp{"external_id": externalID}).
+		Where(dbx.HashExp{"id": id}).
 		One(wallet)
 	return wallet, err
 }

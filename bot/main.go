@@ -84,6 +84,7 @@ func (b *Boss) Listen() error {
 				continue
 			}
 
+			//TODO: check if user already exists
 			uid := uuid.NewV4()
 			err = b.uploadUserInfo(user, photoID, uid.String())
 			if err != nil {
@@ -92,6 +93,12 @@ func (b *Boss) Listen() error {
 					Error("failed to upload user")
 				continue
 			}
+
+			f, _ := b.BotAPI.GetFile(tgbotapi.FileConfig{
+				FileID: photoID,
+			})
+
+			fmt.Println(f.Link(b.Token))
 
 			_, token, _ := b.jwt.Encode(jwt.MapClaims{
 				"id":  uid.String(),

@@ -54,6 +54,8 @@ func (a *App) Start() error {
 	router := server.Router(
 		log,
 		botBoss.Summary(),
+		conf.JWT(),
+		conf.DB(),
 	)
 
 	serverHost := fmt.Sprintf("%s:%s", httpConfiguration.Host, httpConfiguration.Port)
